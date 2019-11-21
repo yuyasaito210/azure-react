@@ -1,0 +1,28 @@
+# docker-compose build
+# docker-compose up -d web
+
+version: '3.5'
+
+services:
+  react-app:
+    container_name: react-app
+    hostname: reactapp
+    links:
+      - flask-app:flask-network
+    build:
+      context: ./react-app
+      dockerfile: ./Dockerfile
+    volumes:
+      - './:/react-app'
+    # command: bash -c "npm start"
+    ports:
+      - "3000:3000"
+    networks:
+      services-network:
+        aliases:
+          - react-app
+
+networks:
+  services-network:
+    name: services-network
+    driver: bridge
