@@ -7,8 +7,8 @@ services:
   react-app:
     container_name: react-app
     hostname: reactapp
-    depends_on:
-      - flask-app
+#    depends_on:
+#      - flask-app
     build:
       context: ./react-app
       dockerfile: ./Dockerfile
