@@ -50,6 +50,9 @@ export default function HeaderLinks(props) {
     }
   };
   const handleCloseProfile = () => {
+    if (props.azure.value.auth) {
+      props.azure.value.auth.logout()
+    }
     setOpenProfile(null);
   };
   const classes = useStyles();

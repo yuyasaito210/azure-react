@@ -24,8 +24,33 @@ import avatar from "assets/img/faces/marc.jpg";
 
 const useStyles = makeStyles(styles);
 
-export default function UserProfile() {
+export default function UserProfile(props) {
   const classes = useStyles();
+  const azure = props.azure;
+
+  const getCurrentUserValueFromProps = (valueName) => {
+    return azure && azure.value && azure.value.currentUser && azure.value.currentUser ? 
+      azure.value.currentUser[valueName] :
+      '';
+  }
+
+  const [values, setValues] = React.useState({
+    userName: getCurrentUserValueFromProps('name'),
+    firstName: getCurrentUserValueFromProps('firstName'),
+    lastName: getCurrentUserValueFromProps('lastName'),
+    city: getCurrentUserValueFromProps('city'),
+    country: getCurrentUserValueFromProps('country'),
+    postalCode: getCurrentUserValueFromProps('postalCode'),
+    email: getCurrentUserValueFromProps('emails'),
+  });
+
+  const handleChange = name => event => {
+    setValues({
+      ...values,
+      [name]: event.target.value,
+    });
+  };
+
   return (
     <div>
       <GridContainer>
@@ -69,6 +94,10 @@ export default function UserProfile() {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    inputProps={{
+                      value: values.userName,
+                      onChange: handleChange('email')
+                    }}
                   />
                 </GridItem>
               </GridContainer>
@@ -80,6 +109,10 @@ export default function UserProfile() {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    inputProps={{
+                      value: values.firstName,
+                      onChange: handleChange('firstName')
+                    }}
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={6}>
@@ -88,6 +121,10 @@ export default function UserProfile() {
                     id="last-name"
                     formControlProps={{
                       fullWidth: true
+                    }}
+                    inputProps={{
+                      value: values.lastName,
+                      onChange: handleChange('lastName')
                     }}
                   />
                 </GridItem>
@@ -100,6 +137,10 @@ export default function UserProfile() {
                     formControlProps={{
                       fullWidth: true
                     }}
+                    inputProps={{
+                      value: values.city,
+                      onChange: handleChange('city')
+                    }}
                   />
                 </GridItem>
                 <GridItem xs={12} sm={12} md={4}>
@@ -108,6 +149,10 @@ export default function UserProfile() {
                     id="country"
                     formControlProps={{
                       fullWidth: true
+                    }}
+                    inputProps={{
+                      value: values.country,
+                      onChange: handleChange('country')
                     }}
                   />
                 </GridItem>

@@ -98,8 +98,8 @@ const container = {
 };
 
 const defaultFont = {
-  fontFamily: '"Sofia Pro", "Roboto", "Helvetica", "Arial", sans-serif',
-  // fontFamily: 'Sofia Pro',
+  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+  // fontFamily: '"Sofia Pro", "Roboto", "Helvetica", "Arial", sans-serif',
   fontWeight: "300",
   lineHeight: "1.5em"
 };

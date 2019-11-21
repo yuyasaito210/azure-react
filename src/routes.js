@@ -22,7 +22,8 @@ import RegularTables from "views/Tables/RegularTables.js";
 import SweetAlert from "views/Components/SweetAlert.js";
 import TimelinePage from "views/Pages/Timeline.js";
 import Typography from "views/Components/Typography.js";
-import UserProfile from "views/Pages/UserProfile.js";
+// import UserProfile from "views/Pages/UserProfile.js";
+import UserProfileContainer from "containers/views/Pages/UserProfileContainers";
 import ValidationForms from "views/Forms/ValidationForms.js";
 import VectorMap from "views/Maps/VectorMap.js";
 import Widgets from "views/Widgets/Widgets.js";
@@ -117,7 +118,7 @@ var dashRoutes = [
         rtlName: "ملف تعريفي للمستخدم",
         mini: "UP",
         rtlMini: "شع",
-        component: UserProfile,
+        component: UserProfileContainer,
         layout: "/app"
       },
       {

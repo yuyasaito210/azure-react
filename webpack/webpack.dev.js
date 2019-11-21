@@ -131,6 +131,7 @@ module.exports = {
   },
   devServer: {
     contentBase: commonPaths.outputPath,
+    port: 3000
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

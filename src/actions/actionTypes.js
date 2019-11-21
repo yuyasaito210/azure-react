@@ -20,3 +20,4 @@ export const LOGOUT = createRequestTypes('LOGOUT');
 export const GET_PROFILE = createRequestTypes('GET_PROFILE');
 export const GET_CONTACTS = createRequestTypes('GET_CONTACTS');
 export const GET_CALENDAR_EVENTS = createRequestTypes('GET_CALENDAR_EVENTS');
+export const LOGEDIN_VIA_AZURE = 'LOGEDIN_VIA_AZURE';

@@ -15,6 +15,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
+import Auth from 'azure/auth';
 
 import styles from "assets/jss/material-dashboard-pro-react/layouts/adminStyle.js";
 
@@ -141,6 +142,14 @@ export default function Dashboard(props) {
       setMobileOpen(false);
     }
   };
+
+  const auth = new Auth();
+  if (auth.isLoggedIn()) {
+    console.log(auth.currentUser());
+    if (props.azureActions && props.azure && props.azure.init && !props.azure.value) {
+      props.azureActions.logedinViaAzure(auth, auth.currentUser());
+    }
+  }
 
   return (
     <div className={classes.wrapper}>

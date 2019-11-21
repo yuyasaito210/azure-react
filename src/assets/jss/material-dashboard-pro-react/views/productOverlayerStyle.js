@@ -1,6 +1,6 @@
-import {
-  defaultFont
-} from "assets/jss/material-dashboard-pro-react.js";
+// import {
+//   defaultFont
+// } from "assets/jss/material-dashboard-pro-react.js";
 
 const productOverlayerStyle = theme => ({
   drawerContainer: {

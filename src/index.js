@@ -16,33 +16,25 @@
 */
 import React from "react";
 import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch, Redirect } from "react-router-dom";
-import { Provider } from 'react-redux';
-import { configureStore } from './store/configureStore';
-
-import AuthLayout from "layouts/Auth.js";
-import RtlLayout from "layouts/RTL.js";
-import AdminLayout from "layouts/Admin.js";
-
-import "assets/scss/material-dashboard-pro-react.scss?v=1.8.0";
-import "assets/fonts/stylesheet.css";
+import App from "app.js"
 import * as serviceWorker from './serviceWorker';
+import b2cauth from 'react-azure-adb2c';
 
-const hist = createBrowserHistory();
-const store = configureStore();
+b2cauth.initialize({
+  instance: 'https://login.microsoftonline.com/tfp/', 
+  tenant: 'realeazy.onmicrosoft.com',
+  signInPolicy: 'B2C_1_signupsignin',
+  applicationId: 'a8194748-3646-4b6a-acdf-e0b19180c1bc',
+  cacheLocation: 'sessionStorage',
+  scopes: ['https://realeazy.onmicrosoft.com/api/user_impersonation'],
+  redirectUri: 'http://localhost:3000',
+  postLogoutRedirectUri: window.location.origin,
+});
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Router history={hist}>
-      <Switch>
-        <Route path="/rtl" component={RtlLayout} />
-        <Route path="/auth" component={AuthLayout} />
-        <Route path="/app" component={AdminLayout} />
-        <Redirect from="/" to="/app/dashboard" />
-      </Switch>
-    </Router>
-  </Provider>,
-  document.getElementById("root")
-);
-serviceWorker.unregister();
+b2cauth.run(() => {
+  ReactDOM.render(
+    <App />,
+    document.getElementById("root")
+  );
+  serviceWorker.unregister();
+});

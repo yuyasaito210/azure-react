@@ -7,15 +7,15 @@ const productItemStyle = theme => ({
     height: 30
   },
   title: {
-    fontFamily: "Sofia Pro Semi",
+    fontFamily: defaultFont.fontFamily,
     textAlign: "left"
   },
   value: {
-    fontFamily: "Sofia Pro Semi",
+    fontFamily: defaultFont.fontFamily,
     textAlign: "center"
   },
   cost: {
-    fontFamily: "Sofia Pro",
+    fontFamily: defaultFont.fontFamily,
     textAlign: "right",
     fontWeight: 500
   }
