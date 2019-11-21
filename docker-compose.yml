@@ -7,13 +7,13 @@ services:
   react-app:
     container_name: react-app
     hostname: reactapp
-    links:
-      - flask-app:flask-network
+    depends_on:
+      - flask-app
     build:
       context: ./react-app
       dockerfile: ./Dockerfile
     volumes:
-      - './:/react-app'
+      - './react-app:/react-app'
     # command: bash -c "npm start"
     ports:
       - "3000:3000"
@@ -21,6 +21,25 @@ services:
       services-network:
         aliases:
           - react-app
+
+  nginx:
+    container_name: nginx
+    image: nginx
+    hostname: nginx
+    volumes:
+      - ./nginx/sites-enabled:/etc/nginx/conf.d:ro
+      - ./logs:/var/log/nginx
+      - ./nginx/certs:/etc/nginx/certs
+    links:
+      - react-app:react-network
+    ports:
+      - "8000:3000"
+      - "443:443"
+    restart: on-failure:5
+    networks:
+      services-network:
+        aliases:
+           - nginx-network
 
 networks:
   services-network:
