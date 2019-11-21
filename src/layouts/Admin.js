@@ -28,6 +28,7 @@ export default function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [miniActive, setMiniActive] = React.useState(false);
   const [image, setImage] = React.useState(require("assets/img/sidebar-2.jpg"));
+  // const [image, setImage] = React.useState("");
   const [color, setColor] = React.useState("blue");
   const [bgColor, setBgColor] = React.useState("black");
   // const [hasImage, setHasImage] = React.useState(true);
@@ -67,6 +68,7 @@ export default function Dashboard(props) {
   // functions for changeing the states from components
   const handleImageClick = image => {
     setImage(image);
+    // setImage("")
   };
   const handleColorClick = color => {
     setColor(color);
@@ -93,7 +95,7 @@ export default function Dashboard(props) {
     setMobileOpen(!mobileOpen);
   };
   const getRoute = () => {
-    return window.location.pathname !== "/admin/full-screen-maps";
+    return window.location.pathname !== "/app/full-screen-maps";
   };
   const getActiveRoute = routes => {
     let activeRoute = "Default Brand Text";
@@ -118,7 +120,7 @@ export default function Dashboard(props) {
       if (prop.collapse) {
         return getRoutes(prop.views);
       }
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/app") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -144,7 +146,7 @@ export default function Dashboard(props) {
     <div className={classes.wrapper}>
       <Sidebar
         routes={routes}
-        logoText={"Creative Tim"}
+        logoText={"Zap"}
         logo={logo}
         image={image}
         handleDrawerToggle={handleDrawerToggle}
@@ -168,7 +170,7 @@ export default function Dashboard(props) {
             <div className={classes.container}>
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from="/admin" to="/admin/dashboard" />
+                <Redirect from="/app" to="/app/dashboard" />
               </Switch>
             </div>
           </div>
@@ -176,7 +178,7 @@ export default function Dashboard(props) {
           <div className={classes.map}>
             <Switch>
               {getRoutes(routes)}
-              <Redirect from="/admin" to="/admin/dashboard" />
+              <Redirect from="/app" to="/app/dashboard" />
             </Switch>
           </div>
         )}

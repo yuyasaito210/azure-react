@@ -27,7 +27,10 @@ import ValidationForms from "views/Forms/ValidationForms.js";
 import VectorMap from "views/Maps/VectorMap.js";
 import Widgets from "views/Widgets/Widgets.js";
 import Wizard from "views/Forms/Wizard.js";
-
+import Balenciga from "views/Shopping/Balenciga.js";
+import AppleHomePad from "views/Shopping/AppleHomePad";
+import NetAPorter from "views/Shopping/NetAPorter";
+import Microsoft from "views/Shopping/Microsoft";
 // @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
 import DashboardIcon from "@material-ui/icons/Dashboard";
@@ -45,7 +48,7 @@ var dashRoutes = [
     rtlName: "لوحة القيادة",
     icon: DashboardIcon,
     component: Dashboard,
-    layout: "/admin"
+    layout: "/app"
   },
   {
     collapse: true,
@@ -79,7 +82,7 @@ var dashRoutes = [
         mini: "T",
         rtlMini: "تي",
         component: TimelinePage,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/login-page",
@@ -115,7 +118,7 @@ var dashRoutes = [
         mini: "UP",
         rtlMini: "شع",
         component: UserProfile,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/error-page",
@@ -150,7 +153,7 @@ var dashRoutes = [
             mini: "B",
             rtlMini: "ب",
             component: Buttons,
-            layout: "/admin"
+            layout: "/app"
           }
         ]
       },
@@ -161,7 +164,7 @@ var dashRoutes = [
         mini: "B",
         rtlMini: "ب",
         component: Buttons,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/grid-system",
@@ -170,7 +173,7 @@ var dashRoutes = [
         mini: "GS",
         rtlMini: "زو",
         component: GridSystem,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/panels",
@@ -179,7 +182,7 @@ var dashRoutes = [
         mini: "P",
         rtlMini: "ع",
         component: Panels,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/sweet-alert",
@@ -188,7 +191,7 @@ var dashRoutes = [
         mini: "SA",
         rtlMini: "ومن",
         component: SweetAlert,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/notifications",
@@ -197,7 +200,7 @@ var dashRoutes = [
         mini: "N",
         rtlMini: "ن",
         component: Notifications,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/icons",
@@ -206,7 +209,7 @@ var dashRoutes = [
         mini: "I",
         rtlMini: "و",
         component: Icons,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/typography",
@@ -215,7 +218,7 @@ var dashRoutes = [
         mini: "T",
         rtlMini: "ر",
         component: Typography,
-        layout: "/admin"
+        layout: "/app"
       }
     ]
   },
@@ -233,7 +236,7 @@ var dashRoutes = [
         mini: "RF",
         rtlMini: "صو",
         component: RegularForms,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/extended-forms",
@@ -242,7 +245,7 @@ var dashRoutes = [
         mini: "EF",
         rtlMini: "هوو",
         component: ExtendedForms,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/validation-forms",
@@ -251,7 +254,7 @@ var dashRoutes = [
         mini: "VF",
         rtlMini: "تو",
         component: ValidationForms,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/wizard",
@@ -260,7 +263,7 @@ var dashRoutes = [
         mini: "W",
         rtlMini: "ث",
         component: Wizard,
-        layout: "/admin"
+        layout: "/app"
       }
     ]
   },
@@ -278,7 +281,7 @@ var dashRoutes = [
         mini: "RT",
         rtlMini: "صر",
         component: RegularTables,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/extended-tables",
@@ -287,7 +290,7 @@ var dashRoutes = [
         mini: "ET",
         rtlMini: "هور",
         component: ExtendedTables,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/react-tables",
@@ -296,7 +299,7 @@ var dashRoutes = [
         mini: "RT",
         rtlMini: "در",
         component: ReactTables,
-        layout: "/admin"
+        layout: "/app"
       }
     ]
   },
@@ -314,7 +317,7 @@ var dashRoutes = [
         mini: "GM",
         rtlMini: "زم",
         component: GoogleMaps,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/full-screen-maps",
@@ -323,7 +326,7 @@ var dashRoutes = [
         mini: "FSM",
         rtlMini: "ووم",
         component: FullScreenMap,
-        layout: "/admin"
+        layout: "/app"
       },
       {
         path: "/vector-maps",
@@ -332,7 +335,7 @@ var dashRoutes = [
         mini: "VM",
         rtlMini: "تم",
         component: VectorMap,
-        layout: "/admin"
+        layout: "/app"
       }
     ]
   },
@@ -342,7 +345,7 @@ var dashRoutes = [
     rtlName: "الحاجيات",
     icon: WidgetsIcon,
     component: Widgets,
-    layout: "/admin"
+    layout: "/app"
   },
   {
     path: "/charts",
@@ -350,7 +353,7 @@ var dashRoutes = [
     rtlName: "الرسوم البيانية",
     icon: Timeline,
     component: Charts,
-    layout: "/admin"
+    layout: "/app"
   },
   {
     path: "/calendar",
@@ -358,7 +361,52 @@ var dashRoutes = [
     rtlName: "التقويم",
     icon: DateRange,
     component: Calendar,
-    layout: "/admin"
-  }
+    layout: "/app"
+  },
+  {
+    collapse: true,
+    name: "Shoppings",
+    rtlName: "الجداول",
+    icon: GridOn,
+    state: "shoppingsCollapse",
+    views: [
+      {
+        path: "/balenciga-shoppings",
+        name: "Balenciga",
+        rtlName: "طاولات عادية",
+        mini: "BS",
+        rtlMini: "صر",
+        component: Balenciga,
+        layout: "/app"
+      },
+      {
+        path: "/applehomepad-shoppings",
+        name: "Apple HomePad",
+        rtlName: "جداول ممتدة",
+        mini: "AH",
+        rtlMini: "هور",
+        component: AppleHomePad,
+        layout: "/app"
+      },
+      {
+        path: "/netaporter-shoppings",
+        name: "Net A Porter",
+        rtlName: "طاولات عادية",
+        mini: "NA",
+        rtlMini: "صر",
+        component: NetAPorter,
+        layout: "/app"
+      },
+      {
+        path: "/microsoft-shoppings",
+        name: "Microsoft",
+        rtlName: "طاولات عادية",
+        mini: "MS",
+        rtlMini: "صر",
+        component: Microsoft,
+        layout: "/app"
+      }
+    ]
+  },
 ];
 export default dashRoutes;
