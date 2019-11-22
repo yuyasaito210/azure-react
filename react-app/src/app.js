@@ -7,7 +7,7 @@ import { configureStore } from './store/configureStore';
 import AuthLayout from "layouts/Auth.js";
 import RtlLayout from "layouts/RTL.js";
 import AdminLayout from "containers/layouts/AdminContainer";
-
+import Auth from 'azure/auth';
 import "assets/scss/material-dashboard-pro-react.scss?v=1.8.0";
 import "assets/fonts/stylesheet.css";
 
@@ -17,6 +17,7 @@ const store = configureStore();
 class App extends Component {
 
   render() {
+    const auth = new Auth();
     return (
       <Provider store={store}>
         <Router history={hist}>
