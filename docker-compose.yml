@@ -7,14 +7,11 @@ services:
   react-app:
     container_name: react-app
     hostname: reactapp
-#    depends_on:
-#      - flask-app
     build:
       context: ./react-app
       dockerfile: ./Dockerfile
     volumes:
       - './react-app:/react-app'
-    # command: bash -c "npm start"
     ports:
       - "3000:3000"
     networks:
