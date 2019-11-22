@@ -27,7 +27,7 @@ b2cauth.initialize({
   applicationId: 'a8194748-3646-4b6a-acdf-e0b19180c1bc',
   cacheLocation: 'sessionStorage',
   scopes: ['https://realeazy.onmicrosoft.com/api/user_impersonation'],
-  redirectUri: 'http://localhost:3000',
+  redirectUri: 'https://66.42.108.113:8889',
   postLogoutRedirectUri: window.location.origin,
 });
 
